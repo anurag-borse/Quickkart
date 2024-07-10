@@ -1,0 +1,37 @@
+
+
+
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">QuickKartApp</a>
+  <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/viewProducts" href="#">View Products</a>
+      </li>
+      <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+        <a class="nav-link" routerLink="/login" href="#">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="!(isLoggedIn$ | async)">
+        <a class="nav-link" routerLink="/register" href="#">Sign Up</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn$ | async">
+        <a class="nav-link" routerLink="/viewCart" href="#">View Cart</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn$ | async">
+        <a class="nav-link" routerLink="/viewPurchase" href="#">View Purchase</a>
+      </li>
+      <li class="nav-item" *ngIf="isLoggedIn$ | async">
+        <a class="nav-link" routerLink="/rating" href="#">View Rating</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/viewCart" href="#" >View Cart</a>
+      </li>
+
+
+      <li class="nav-item" *ngIf="isLoggedIn$ | async">
+        <a class="nav-link" (click)="logout()">Logout me</a>
+      </li>
+    </ul>
+  </div>
+</nav>

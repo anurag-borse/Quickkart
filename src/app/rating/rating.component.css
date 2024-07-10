@@ -1,0 +1,12 @@
+.rating-review {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+  .rating-review h3 {
+    margin: 0;
+  }
+
+  .rating-review div {
+    margin-bottom: 5px;
+  }

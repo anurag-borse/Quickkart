@@ -1,0 +1,33 @@
+<div class="container">
+  <h1>Feedback Form</h1>
+  <p>If you have a suggestion or any feedback for us, we'd love to hear it</p>
+  <form [formGroup]="feedbackForm" (ngSubmit)="SubmitForm(feedbackForm)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" formControlName="name" placeholder="Write your Name">
+      <p *ngIf="feedbackForm.controls['name'].errors?.['required'] && feedbackForm.controls['name'].touched" class="alert alert-danger">This field is required!</p>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email" placeholder="Write your email">
+      <p *ngIf="feedbackForm.controls['email'].errors?.['required'] && feedbackForm.controls['email'].touched" class="alert alert-danger">This field is required!</p>
+      <p *ngIf="feedbackForm.controls['email'].errors?.['email'] && feedbackForm.controls['email'].touched" class="alert alert-danger">The Email ID is not proper!</p>
+      <p *ngIf="feedbackForm.controls['email'].errors?.['gmail'] && feedbackForm.controls['email'].touched" class="alert alert-danger">{{ feedbackForm.controls['email'].errors?.['gmail'].message }}</p>
+    </div>
+
+    <div class="form-group">
+      <label>Message</label>
+      <textarea type="text" class="form-control" formControlName="message"></textarea>
+      <p *ngIf="feedbackForm.controls['message'].errors?.['required'] && feedbackForm.controls['message'].touched" class="alert alert-danger">This field is required!</p>
+      <p *ngIf="feedbackForm.controls['message'].errors?.['minlength'] && feedbackForm.controls['message'].touched" class="alert alert-danger">The message must be at least 8 characters long</p>
+      <p *ngIf="feedbackForm.controls['message'].errors?.['maxlength'] && feedbackForm.controls['message'].touched" class="alert alert-danger">The message must be at most 100 characters long</p>
+    </div>
+
+    <button type="submit">Send Feedback</button>
+  </form>
+  <div>
+    {{msg}}
+  </div>
+  <br />
+</div>

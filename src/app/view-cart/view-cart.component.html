@@ -1,0 +1,27 @@
+<app-customer-layout></app-customer-layout>
+<div class="myContent">
+  <h4>You have added the following products to the cart.</h4>
+  <br />
+  <div class="table-responsive">
+    <table class="table" style="border:2px solid rgba(220,230,242,1);" *ngIf="Products && Products.length">
+      <tr style="background-color:rgba(220,230,242,1); font-size:12pt">
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total Amount</th>
+        <th style="text-align:center" colspan="2">Action(s)</th>
+      </tr>
+      <tr *ngFor="let product of Products" style="background-color:white">
+        <td>{{product.productName}}</td>
+        <td>{{product.price}}</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{product.quantity }}&nbsp;</td>
+        <td>{{product.price * product.quantity}}</td>
+        <td style="text-align:right"><button title="Update Quantity" (click)="updateCart(product)" class="btn">Update Quantity</button></td>
+        <td><img title="Remove from cart" [src]="imageSrc" (click)="removeProductFromCart(product)"></td>
+      </tr>
+    </table>
+    <div *ngIf="showError" style="">
+      <h4 class="jumbotron" style="text-align:center;">{{errorMsg}}</h4>
+    </div>
+  </div>
+</div>

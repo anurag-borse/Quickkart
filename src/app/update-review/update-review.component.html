@@ -1,0 +1,51 @@
+<app-customer-layout></app-customer-layout>
+<div class="myContent">
+  <div class="container">
+    <form #updateReviewForm="ngForm" (ngSubmit)="updateReview()">
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+          <h4 style="text-align:center">Update Review</h4>
+          <h6 style="text-align:right;color:dimgrey;font-size:small">All fields are mandatory</h6>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Product Id</label>
+            </div>
+            <div class="col input-group">
+              <input type="text" name="productId" [ngModel]="review.productId" class="form-control qkinput" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Product Name</label>
+            </div>
+            <div class="col input-group">
+              <input type="text" name="productName" [ngModel]="review.productName" class="form-control qkinput" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Ratings</label>
+            </div>
+            <div class="col input-group">
+              <input type="number" name="reviewRating" [(ngModel)]="review.reviewRating" class="form-control qkinput" min="1" max="5" readonly>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col" style="text-align:left">
+              <label>Review Comments</label>
+            </div>
+            <div class="col input-group">
+              <input type="text" name="reviewComments" [(ngModel)]="review.reviewComments" class="form-control qkinput" required>
+            </div>
+          </div>
+          <div class="form-group" style="text-align:left">
+            <button type="submit" [disabled]="!updateReviewForm.form.valid" class="btn">Update</button> &nbsp;&nbsp;
+            <a routerLink="/viewRatings">Cancel</a>
+          </div>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+    </form>
+  </div>
+</div>

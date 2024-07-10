@@ -1,0 +1,33 @@
+
+<app-customer-layout></app-customer-layout>
+
+
+<div *ngIf="showMsgDiv" class="alert alert-info">
+  No purchases found.
+</div>
+
+<div *ngIf="!showMsgDiv">
+  <p style="text-align: left;">You have purchased the following products.</p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Purchase ID</th>
+        <th>Product Name</th>
+        <th>Quantity Purchased</th>
+        <th>Date of Purchase</th>
+        <th>Rate and Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let purchase of purchases">
+        <td>{{ purchase.purchaseId }}</td>
+        <td>{{ purchase.productName }}</td>
+        <td>{{ purchase.quantityPurchased }}</td>
+        <td>{{ purchase.purchaseDate }}</td>
+        <td>
+          <button class="btn btn-primary">Rate Product</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

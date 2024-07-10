@@ -1,0 +1,41 @@
+
+<app-customer-layout></app-customer-layout>
+
+<div *ngIf="showMsgDiv" class="alert alert-info">
+  No ratings and reviews found.
+</div>
+
+<div *ngIf="!showMsgDiv">
+  <h2>Product Ratings and Reviews</h2>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Rating</th>
+        <th>Review</th>
+        <th>Actions</th>
+
+      </tr>
+
+    </thead>
+    <tbody>
+      <tr *ngFor="let rating of ratings">
+        <td>{{ rating.productName }}</td>
+        <td>
+          <span *ngFor="let star of getStars(rating.reviewRating)" class="fa fa-star" style="color:gold;"></span>
+        </td>
+        <td>{{ rating.reviewComments }}</td>
+        <td>
+
+
+          <a class="btn btn-primary" [routerLink]="['/updateReview', rating.productId, rating.productName, rating.reviewRating, rating.reviewComments]">Update Review</a>
+
+
+
+          <button class="btn btn-danger" style="margin-left:2px">Delete Rating</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
